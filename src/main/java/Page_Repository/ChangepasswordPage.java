@@ -18,15 +18,21 @@
 		private WebElement Password;
 		@FindBy(id="send2")
 		private WebElement SignIn;
-	
+		
+		@FindBy(xpath="(//button[@class=\"action switch\"])[1]")
+		private WebElement Welcome;
+		@FindBy(xpath="//a[text()='My Account']")
+		private WebElement Myaccount; 
 		//--------------------------
-	@FindBy(xpath=("//a[@class=\"action change-password\"]"))
+	@FindBy(xpath=("//a[@class='action change-password']"))
 	private WebElement changepass;
+	@FindBy(xpath="//input[@id='current-password']")
+	private WebElement Currentpassword;
 	@FindBy(id="password")
 	private WebElement NewPassword;
 	@FindBy(id="password-confirmation")
 	private WebElement ConFormPassword;
-	@FindBy(xpath=("//button[@class=\"action save primary\"]"))
+	@FindBy(xpath=("//button[@class='action save primary']"))
 	private WebElement SaveButton;
 
 	//Intialization
@@ -53,7 +59,13 @@
 		return SignIn;
 		
 	}
-	
+	public WebElement getWelcome() {
+		return Welcome;
+		
+	}
+	public WebElement getMyaccount() {
+		return Myaccount;
+	}
 
 	//-------------------------
 	
@@ -61,6 +73,10 @@
 	public WebElement getchangepass() {
 		return changepass;
 		
+	}
+	public WebElement  getcurrentpassword()
+	{
+		return Currentpassword;
 	}
 	public WebElement getNewPassword() {
 		return NewPassword;

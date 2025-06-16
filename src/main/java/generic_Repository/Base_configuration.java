@@ -13,7 +13,7 @@ public class Base_configuration {
 	{
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		Thread.sleep(2000);
+		
 		driver.get("https://magento.softwaretestingboard.com/");
 	}
 	@AfterClass

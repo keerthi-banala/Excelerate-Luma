@@ -3,20 +3,22 @@ package Test_Repository;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import Page_Repository.SigninPage;
 import Page_Repository.SignoutPage;
+import generic_Repository.Base_configuration;
 
-public class SignoutPage_Validation {
-WebDriver driver;
+public class SignoutPage_Validation extends Base_configuration{
+
 @Test
  public void PerformSignOut()
  {
+	SigninPage sp=new SigninPage(driver);
+	sp.getSignIn1().click();
+	sp.getEmailid().sendKeys("klskeerthi.banala116@gmail.com");
+	sp.getPassword().sendKeys("Keerthi@1234");
+	sp.getSignIn().click();
 	SignoutPage so=new SignoutPage(driver);
-	so.getSignIn1().click();
-	so.getEmailid().sendKeys("klskeerthi.banala111@gmail.com");
-	so.getPassword().sendKeys("Keerthi@123");
-	so.getSignIn().click();
 	so.getWelcome().click();
-	so.getMyaccount().click();
 	so.getSignOut().click();
  }
 }

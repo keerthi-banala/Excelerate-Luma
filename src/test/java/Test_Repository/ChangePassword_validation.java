@@ -1,24 +1,34 @@
 package Test_Repository;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 
 import Page_Repository.ChangepasswordPage;
+import Page_Repository.SigninPage;
+import Page_Repository.SignoutPage;
 import generic_Repository.Base_configuration;
 
 public class ChangePassword_validation extends Base_configuration {
-    WebDriver driver;
+    
+    @Test
 	public void changepassoerd()
 	{
+		
+    	SigninPage sp=new SigninPage(driver);
+		sp.getSignIn1().click();
+		sp.getEmailid().sendKeys("klskeerthi.banala116@gmail.com");
+		sp.getPassword().sendKeys("Keerthi@1234");
+		sp.getSignIn().click();
+		
+		SignoutPage so=new SignoutPage(driver);
+		so.getWelcome().click();
+		so.getMyaccount().click();
+		
 		ChangepasswordPage cp=new ChangepasswordPage(driver);
-		cp.getSignIn1().click();
-		cp.getEmailid().sendKeys("klskeerthi.banala111@gmail.com");
-		cp.getPassword().sendKeys("Keerthi@123");
-		cp.getSignIn().click();
-		cp.getWelcome().click();
-		cp.getMyaccount().click();
-		cp.getchangepass().sendKeys("Keerthi@123");
-		cp.getNewPassword().sendKeys("Keerthi@1234");
-		cp.getConFormPassword().sendKeys("Keerthi@1234");
+		cp.getchangepass().click();
+		cp.getcurrentpassword().sendKeys("Keerthi@1234");
+		cp.getNewPassword().sendKeys("Keerthi@12345");
+		cp.getConFormPassword().sendKeys("Keerthi@12345");
 		cp.getSaveButton().click();
 	}
 }
